@@ -1,13 +1,5 @@
-<form>
-    <div class="g-recaptcha" data-sitekey="6LeAj7AqAAAAAKXRRNJ7geO6fcgN9EUGmxRkRaMt"></div>
-    <br>
-    <input type="submit" value="Gửi">
-</form>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 <style>
-    form {
+    #recaptchaForm {
         width: 300px;
         margin: 0 auto;
         padding: 20px;
@@ -16,7 +8,7 @@
         box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         text-align: center;
     }
-    
+
     input[type="submit"] {
         padding: 10px 20px;
         background-color: #4CAF50;
@@ -27,12 +19,57 @@
         cursor: pointer;
         transition: background-color 0.3s;
     }
-    
+
     input[type="submit"]:hover {
         background-color: #45a049;
     }
 
-    .g-recaptcha {
-        margin-bottom: 15px;
+    #mainPage {
+        display: none;
+        padding: 20px;
+        border: 1px solid #ccc;
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        background-color: #f9f9f9;
+        text-align: center;
+        box-sizing: border-box;
+    }
+
+    #mainPage h1 {
+        font-size: 36px;
+        color: #4CAF50;
+    }
+
+    #mainPage p {
+        font-size: 18px;
+        color: #333;
     }
 </style>
+
+<form id="recaptchaForm">
+    <div class="g-recaptcha" data-sitekey="6LeAj7AqAAAAAKXRRNJ7geO6fcgN9EUGmxRkRaMt"></div>
+    <br>
+    <input type="submit" value="Gửi">
+</form>
+
+<div id="mainPage" style="display: none;">
+    <h1>Chào mừng đến với Trang Chính!</h1>
+    <p>Bạn đã xác thực thành công!</p>
+</div>
+
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<script>
+    document.getElementById("recaptchaForm").onsubmit = function(event) {
+        event.preventDefault();
+
+        var response = grecaptcha.getResponse();
+        if (response.length == 0) {
+            alert("Vui lòng xác thực reCAPTCHA!");
+        } else {
+            document.getElementById('recaptchaForm').style.display = 'none';
+            document.getElementById('mainPage').style.display = 'block';
+        }
+    };
+</script>
