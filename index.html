@@ -3,57 +3,148 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
-  <title>Xác Thực Con Người</title>
+  <title>codemasterxkiet | hệ thống lập trình</title>
 </head>
 <body>
+<body style="background-color: whitesmoke;">
+</body>
+<header style="position: fixed; top: 0; left: 0; width: 100%; background-color: white; color: white; text-align: center; height: 50px; font-size: 24px; z-index: 9; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);">   
+</header>
+
+<button class="menu-btn" onclick="toggleMenu()">☰</button>
+<div class="side-menu">
+    <button class="close-btn" onclick="toggleMenu()">X</button> <!-- Button đóng -->
+    <ul>
+<li> Dịch Vụ Website <li>
+<li> <button onclick="window.location.href = 'baiviet.html';" style="height: 40px; width: 200px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; position: absolute; top: 120px; left: 50%; transform: translateX(-50%);">
+  Bài Viết Admin
+</button> <li>
+<li> <button onclick="window.location.href = 'testcode.html';" style="height: 40px; width: 200px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; position: absolute; top: 170px; left: 50%; transform: translateX(-50%);">
+  Test Code Html
+</button> <li>
+        
+    </ul>
+</div>
 
 <style>
-    #recaptchaForm {
-        width: 300px;
-        margin: 0px; 50%;
-        padding: 20px;
-        background-color: #fff;
-        border-radius: 8px;
-        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        text-align: center;
-    }
-
-    input[type="submit"] {
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        border: none;
+    .menu-btn {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        font-size: 30px;
+        background-color: #333;
         color: white;
-        font-size: 16px;
-        border-radius: 5px;
+        border: none;
+        height: 50px; width: 50px;
         cursor: pointer;
-        transition: background-color 0.3s;
+        z-index: 999;
     }
 
-    input[type="submit"]:hover {
-        background-color: #45a049;
+    .menu-btn:hover {
+        background-color: #444;
+    }
+
+    .side-menu {
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        background-color: #333;
+        color: white;
+        transition: 0.3s;
+        padding-top: 60px;
+        z-index: 1000;
+    }
+
+    .side-menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .side-menu ul li {
+        padding: 8px 16px;
+        text-align: left;
+    }
+
+    .side-menu ul li:hover {
+        background-color: #444;
+    }
+
+    .side-menu.open {
+        left: 0;
+    }
+
+    /* Style cho button đóng */
+    .close-btn {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        font-size: 25px;
+        background-color: #333;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+
+    .close-btn:hover {
+        background-color: #444;
     }
 </style>
 
-<form id="recaptchaForm">
-    <div class="g-recaptcha" data-sitekey="6LeAj7AqAAAAAKXRRNJ7geO6fcgN9EUGmxRkRaMt"></div>
-    <br>
-    <input type="submit" value="Xác Thực">
-</form>
-
-<script src="https://www.google.com/recaptcha/api.js" async defer></script>
-
 <script>
-    document.getElementById("recaptchaForm").onsubmit = function(event) {
-        event.preventDefault();
-
-        var response = grecaptcha.getResponse();
-        if (response.length == 0) {
-            alert("Vui lòng xác thực reCAPTCHA!");
-        } else {
-            window.location.href = 'trangchu.html';
-        }
-    };
+    function toggleMenu() {
+        var menu = document.querySelector('.side-menu');
+        menu.classList.toggle('open');
+    }
 </script>
+
+<div class="frame">
+<label style="font-size: 20px; color:  blue; font-weight: bold; font-style: italic; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap;">Lập Trình Html</label>
+
+<img src="https://i.imgur.com/0So8wcY.png" width="250" height="190" style="position: absolute; top: 40px; left: 13px; border-radius: 15px;">
+
+<button onclick="window.location.href = "html.html';" style="height: 40px; width: 200px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; position: absolute; top: 240px; left: 50%; transform: translateX(-50%);">
+  Xem Lập Trình
+</button></div>
+
+<style>
+    .frame {
+        width: 280px;
+        height: 280px;
+        background-color: white;
+        position: absolute;
+        top: 70px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+        z-index: 1;
+    }
+</style>
+
+<div class="frame1">
+
+<label style="font-size: 20px; color: white; font-weight: bold; font-style: italic; position: absolute; top: 10px; left: 50%; transform: translateX(-50%); white-space: nowrap;">Lập Trình Python</label>
+
+<img src="https://i.imgur.com/l4kyjfw.png" width="190" height="190" style="position: absolute; top: 40px; left: 50px; border-radius: 15px;">
+
+<button onclick="window.location.href = 'python.html';" style="height: 40px; width: 200px; font-size: 16px; background-color: #4CAF50; color: white; border: none; cursor: pointer; border-radius: 5px; position: absolute; top: 240px; left: 50%; transform: translateX(-50%);">
+  Xem Lập Trình
+</button></div>
+
+<style>
+    .frame1 {
+        width: 280px;
+        height: 280px;
+        background-color: lightblue;
+        position: absolute;
+        top: 370px;
+        left: 50%;
+        transform: translateX(-50%);
+        border-radius: 20px;
+    }
+</style>
 
 </body>
 </html>
